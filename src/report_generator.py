@@ -26,7 +26,7 @@ def generate_pdf_report(results, output_file="Resume_Report.pdf"):
 
     content.append(
         Paragraph(
-            f"<b>ATS Score:</b> {round(results['ats_score'],2)}%",
+            f"<b>ATS Score:</b> {float(results['ats_score']):.2f}%",
             styles["Heading2"]
         )
     )
