@@ -27,4 +27,4 @@ def calculate_ats_score(
         2
     )
 
-    return ats_score
+    return round(ats_score, 2)

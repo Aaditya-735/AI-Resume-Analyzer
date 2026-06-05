@@ -1,21 +1,24 @@
-from parser import extract_resume_text
-from ats_engine import calculate_ats_score
-
-resume_text = extract_resume_text(
-    "C:/Users/AG/Documents/Aaditya_Resume(Updated).pdf"
+from analyzer import run_analysis
+from output_formatter import print_section
+results = run_analysis(
+    "C:/Users/AG/Documents/Aaditya_Resume(Updated).pdf",
+    "data/job_descriptions/ml_engineer.txt"
 )
 
-with open(
-    "data/job_descriptions/ml_engineer.txt",
-    "r",
-    encoding="utf-8"
-) as f:
 
-    job_description = f.read()
 
-score = calculate_ats_score(
-    resume_text,
-    job_description
-)
 
-print(f"\nATS Score: {score}%")
+print_section("ATS SCORE")
+print(results["ats_score"])
+
+print_section("MATCHED SKILLS")
+print(results["matched"])
+
+print_section("MISSING SKILLS")
+print(results["missing"])
+
+print_section("AI FEEDBACK")
+print(results["feedback"])
+
+print_section("INTERVIEW QUESTIONS")
+print(results["questions"])
