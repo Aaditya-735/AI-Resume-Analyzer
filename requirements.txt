@@ -1,0 +1,9 @@
+pdfplumber
+PyPDF2
+python-docx
+sentence-transformers
+scikit-learn
+numpy
+pandas
+google-generativeai
+python-dotenv
