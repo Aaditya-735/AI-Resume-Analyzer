@@ -1,3 +1,4 @@
+from report_generator import generate_pdf_report
 from analyzer import run_analysis
 from output_formatter import print_section
 results = run_analysis(
@@ -22,3 +23,5 @@ print(results["feedback"])
 
 print_section("INTERVIEW QUESTIONS")
 print(results["questions"])
+
+generate_pdf_report(results)
