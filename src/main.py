@@ -8,7 +8,8 @@ results = run_analysis(
 
 
 
-
+print(type(results["ats_score"]))
+print(results["ats_score"])
 print_section("ATS SCORE")
 print(results["ats_score"])
 
@@ -25,3 +26,4 @@ print_section("INTERVIEW QUESTIONS")
 print(results["questions"])
 
 generate_pdf_report(results)
+
