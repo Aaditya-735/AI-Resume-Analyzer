@@ -63,6 +63,7 @@ Gemini AI Feedback
     ↓
 PDF Report Generation
 
+```
 ---
 
 ## Project Structure
