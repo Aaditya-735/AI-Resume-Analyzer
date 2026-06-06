@@ -26,10 +26,7 @@ def run_analysis(
 
         jd_text = f.read()
 
-    ats_score = calculate_ats_score(
-        resume_text,
-        jd_text
-    )
+    
 
     resume_skills = extract_skills(
         resume_text
@@ -39,16 +36,31 @@ def run_analysis(
         jd_text
     )
 
-    matched, missing = compare_skills(
-        resume_skills,
-        jd_skills
+    matched_skills = list(
+    set(resume_skills)
+    &
+    set(jd_skills)
+    )
+    missing_skills = list(
+    set(jd_skills)
+    -
+    set(resume_skills)
+    )
+
+
+
+    ats_score = calculate_ats_score(
+        resume_text,
+        jd_text,
+        matched_skills,
+        missing_skills
     )
 
     feedback = analyze_resume(
         resume_text,
         jd_text,
-        matched,
-        missing
+        matched_skills,
+        missing_skills
     )
     questions = generate_questions(
     resume_text,
@@ -58,8 +70,8 @@ def run_analysis(
 
     return {
         "ats_score": ats_score,
-        "matched": matched,
-        "missing": missing,
+        "matched": matched_skills,
+        "missing": missing_skills,
         "feedback": feedback,
         "questions": questions
     }
